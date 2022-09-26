@@ -17,7 +17,7 @@ function handleClickButton(e){
     }
     
   
-  
+  console.log("g");
 
     if(document.getElementById(clickedButton).innerText != "o" && document.getElementById(clickedButton).innerText != "x"){
         if(currentPlayer == 1){
