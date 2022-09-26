@@ -16,25 +16,24 @@ function handleClickButton(e){
         clickedButton = e.target.parentNode.id;
     }
     
-  
-  console.log("g");
 
     if(document.getElementById(clickedButton).innerText != "o" && document.getElementById(clickedButton).innerText != "x"){
         if(currentPlayer == 1){
             document.getElementById(clickedButton).innerText = "o";
             document.getElementById(clickedButton).classList.add("circle");
-            e.value = 1;
             currentPlayer = 0;
+            e.value = 0;
         }else{
             document.getElementById(clickedButton).innerText = "x";
             document.getElementById(clickedButton).classList.add("rectangle");
             currentPlayer = 1;
-            e.value = 0;
+            e.value = 1;
         }
     
     }
 
-    ProveColumsAndRows(e, clickedButton);
+    //ProveColumsAndRows(e, clickedButton);
+    checkTriple();
 }
 
 
@@ -198,4 +197,70 @@ function ProveColumsAndRows(e, clickedButton){
             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
         }
     }
+}
+
+function checkTriple() {
+    let allBoxes = document.querySelector("#number-container").children;
+    let boxValues = [];
+    Array.from( allBoxes ).forEach( element => {
+        let sign = null;
+        if( element.innerText == 'x' )
+            sign = 1;
+        
+        if( element.innerText == 'o' )
+            sign = 0;
+        boxValues.push( sign );
+    });
+    let isWinner = false;
+    let winningBoxes = [];
+    console.log(boxValues);
+
+    if( boxValues[0] != null && boxValues[0] == boxValues[1] && boxValues[1] == boxValues[2] ) {
+        isWinner = true;
+        winningBoxes = [0, 1, 2];
+    }
+
+    if( boxValues[0] != null && boxValues[0] == boxValues[3] && boxValues[3] == boxValues[6] ) {
+        isWinner = true;
+        winningBoxes = [0, 3, 6];
+    }
+
+    if( boxValues[0] != null && boxValues[0] == boxValues[4] && boxValues[4] == boxValues[8] ) {
+        isWinner = true;
+        winningBoxes = [0, 4, 8];
+    }
+
+    if( boxValues[1] != null && boxValues[1] == boxValues[4] && boxValues[4] == boxValues[7] ) {
+        isWinner = true;
+        winningBoxes = [1, 4, 7];
+    }
+
+    if( boxValues[2] != null && boxValues[2] == boxValues[4] && boxValues[4] == boxValues[6] ) {
+        isWinner = true;
+        winningBoxes = [4, 6, 2];
+    }
+
+    if( boxValues[3] != null && boxValues[3] == boxValues[4] && boxValues[4] == boxValues[5] ) {
+        isWinner = true;
+        winningBoxes = [3, 4, 5];
+    }
+    if( boxValues[2] != null && boxValues[2] == boxValues[5] && boxValues[5] == boxValues[7] ) {
+        isWinner = true;
+        winningBoxes = [7, 5, 2];
+    }
+    if( boxValues[6] != null && boxValues[6] == boxValues[7] && boxValues[7] == boxValues[8] ) {
+        isWinner = true;
+        winningBoxes = [6, 7, 8];
+    }
+
+
+
+    if( isWinner ) {
+        winningBoxes.forEach( box => {
+            document.querySelector("#number-container").children[box].style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+        });
+        
+    }
+
+
 }
