@@ -3,8 +3,6 @@
     src: url(NEON____.TTF);
 }
 
-
-
 body{
     background-color: #242424;
     height: 100vh;
@@ -24,23 +22,21 @@ body{
 #tic_container-outer{
     display: flex;
     justify-content: center;
-   height: 100%;
+    height: 100%;
     align-items: center;
     flex-direction: column;
 }
 
 #tr_inner{
     width: fit-content;
-  
     display: grid;
-   justify-items: center;
-   align-items: center;
+    justify-items: center;
+    align-items: center;
     row-gap: 0.8rem;
     padding: 0.8rem;
     border-radius: 0.4rem;
     height: 80%;
     width: 80%;
-
 }
 
 .buttonBlock-item{
@@ -52,14 +48,11 @@ body{
     justify-content: center;
     display: flex;
     align-items: center;
-
     background-color: #424242;
     font-size: 5rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-shadow: inset 3px 2px 9px 0px #9c9c9c;
     height: calc(100% - 2rem);
-    
-   
 }
 
 .number-container-item:hover{

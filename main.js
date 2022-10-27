@@ -16,7 +16,6 @@ function handleClickButton(e){
         clickedButton = e.target.parentNode.id;
     }
     
-
     if(document.getElementById(clickedButton).innerText != "o" && document.getElementById(clickedButton).innerText != "x"){
         if(currentPlayer == 1){
             document.getElementById(clickedButton).innerText = "o";
@@ -29,179 +28,15 @@ function handleClickButton(e){
             currentPlayer = 1;
             e.value = 1;
         }
-    
     }
-
     //ProveColumsAndRows(e, clickedButton);
     checkTriple();
-}
-
-
-function ProveColumsAndRows(e, clickedButton){
-
-    let array = document.querySelector("#number-container");
-    let sign = "";
-
-    if(e.value == 0){
-        sign = "x";
-    }
-
-    if(e.value == 1){
-        sign = "o";
-    }
-
-    if(clickedButton == "item_0"){
-        if(array.children[1].innerText == sign && array.children[2].innerText == sign){
-           document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-           document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-           document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-           
-        }
-        if(array.children[3].innerText == sign && array.children[6].innerText == sign){
-            document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[4].innerText == sign && array.children[8].innerText == sign){
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
-
-    if(clickedButton == "item_1"){
-        if(array.children[0].innerText == sign && array.children[2].innerText == sign){
-            document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[4].innerText == sign && array.children[7].innerText == sign){
-            document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
-
-    if(clickedButton == "item_2"){
-        if(array.children[1].innerText == sign && array.children[0].innerText == sign){
-            document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[8].innerText == sign && array.children[5].innerText == sign){
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[4].innerText == sign && array.children[6].innerText == sign){
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
-
-    if(clickedButton == "item_3"){
-        if(array.children[1].innerText == sign && array.children[6].innerText == sign){
-            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[4].innerText == sign && array.children[5].innerText == sign){
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
-
-    if(clickedButton == "item_5"){
-        if(array.children[8].innerText == sign && array.children[2].innerText == sign){
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[3].innerText == sign && array.children[4].innerText == sign){
-            document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
-
-    if(clickedButton == "item_4"){
-        if(array.children[0].innerText == sign && array.children[8].innerText == sign){
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[2].innerText == sign && array.children[6].innerText == sign){
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[3].innerText == sign && array.children[5].innerText == sign){
-            document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[1].innerText == sign && array.children[7].innerText == sign){
-            document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
-
-    if(clickedButton == "item_6"){
-        if(array.children[1].innerText == sign && array.children[3].innerText == sign){
-            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[7].innerText == sign && array.children[8].innerText == sign){
-            document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[4].innerText == sign && array.children[2].innerText == sign){
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
-
-    if(clickedButton == "item_7"){
-        if(array.children[1].innerText == sign && array.children[4].innerText == sign){
-            document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[8].innerText == sign && array.children[6].innerText == sign){
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
-    
-    if(clickedButton == "item_8"){
-        if(array.children[0].innerText == sign && array.children[4].innerText == sign){
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[2].innerText == sign && array.children[5].innerText == sign){
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-        if(array.children[6].innerText == sign && array.children[7].innerText == sign){
-            document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-            document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        }
-    }
 }
 
 function checkTriple() {
     let allBoxes = document.querySelector("#number-container").children;
     let boxValues = [];
+
     Array.from( allBoxes ).forEach( element => {
         let sign = null;
         if( element.innerText == 'x' )
@@ -211,9 +46,9 @@ function checkTriple() {
             sign = 0;
         boxValues.push( sign );
     });
+
     let isWinner = false;
     let winningBoxes = [];
-    console.log(boxValues);
 
     if( boxValues[0] != null && boxValues[0] == boxValues[1] && boxValues[1] == boxValues[2] ) {
         isWinner = true;
@@ -244,23 +79,199 @@ function checkTriple() {
         isWinner = true;
         winningBoxes = [3, 4, 5];
     }
-    if( boxValues[2] != null && boxValues[2] == boxValues[5] && boxValues[5] == boxValues[7] ) {
+    if( boxValues[2] != null && boxValues[2] == boxValues[5] && boxValues[5] == boxValues[8] ) {
         isWinner = true;
-        winningBoxes = [7, 5, 2];
+        winningBoxes = [8, 5, 2];
     }
     if( boxValues[6] != null && boxValues[6] == boxValues[7] && boxValues[7] == boxValues[8] ) {
         isWinner = true;
         winningBoxes = [6, 7, 8];
     }
 
-
-
-    if( isWinner ) {
-        winningBoxes.forEach( box => {
-            document.querySelector("#number-container").children[box].style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
-        });
-        
+    if(isWinner){
+        showWinner();
     }
-
-
 }
+
+function showWinner(){
+    
+    winningBoxes.forEach( box => {
+        document.querySelector("#number-container").children[box].style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+    });
+    
+    setTimeout( () => {
+        document.querySelectorAll(".number-container-item").forEach(item => {
+            item.innerText = null;
+            item.classList.remove("rectangle");
+            item.classList.remove("circle");
+        })
+
+        winningBoxes.forEach( box => {
+            document.querySelector("#number-container").children[box].style.boxShadow = "inset 3px 2px 9px 0px #9c9c9c";
+        });
+    }, 500);
+}
+
+//diffrent more complex solution
+
+// function ProveColumsAndRows(e, clickedButton){
+
+//     let array = document.querySelector("#number-container");
+//     let sign = "";
+
+//     if(e.value == 0){
+//         sign = "x";
+//     }
+
+//     if(e.value == 1){
+//         sign = "o";
+//     }
+
+//     if(clickedButton == "item_0"){
+//         if(array.children[1].innerText == sign && array.children[2].innerText == sign){
+//            document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//            document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//            document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+           
+//         }
+//         if(array.children[3].innerText == sign && array.children[6].innerText == sign){
+//             document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[4].innerText == sign && array.children[8].innerText == sign){
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+
+//     if(clickedButton == "item_1"){
+//         if(array.children[0].innerText == sign && array.children[2].innerText == sign){
+//             document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[4].innerText == sign && array.children[7].innerText == sign){
+//             document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+
+//     if(clickedButton == "item_2"){
+//         if(array.children[1].innerText == sign && array.children[0].innerText == sign){
+//             document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[8].innerText == sign && array.children[5].innerText == sign){
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[4].innerText == sign && array.children[6].innerText == sign){
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+
+//     if(clickedButton == "item_3"){
+//         if(array.children[1].innerText == sign && array.children[6].innerText == sign){
+//             document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[4].innerText == sign && array.children[5].innerText == sign){
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+
+//     if(clickedButton == "item_5"){
+//         if(array.children[8].innerText == sign && array.children[2].innerText == sign){
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[3].innerText == sign && array.children[4].innerText == sign){
+//             document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+
+//     if(clickedButton == "item_4"){
+//         if(array.children[0].innerText == sign && array.children[8].innerText == sign){
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[2].innerText == sign && array.children[6].innerText == sign){
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[3].innerText == sign && array.children[5].innerText == sign){
+//             document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[1].innerText == sign && array.children[7].innerText == sign){
+//             document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+
+//     if(clickedButton == "item_6"){
+//         if(array.children[1].innerText == sign && array.children[3].innerText == sign){
+//             document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_3").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[7].innerText == sign && array.children[8].innerText == sign){
+//             document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[4].innerText == sign && array.children[2].innerText == sign){
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+
+//     if(clickedButton == "item_7"){
+//         if(array.children[1].innerText == sign && array.children[4].innerText == sign){
+//             document.querySelector("#item_1").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[8].innerText == sign && array.children[6].innerText == sign){
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+    
+//     if(clickedButton == "item_8"){
+//         if(array.children[0].innerText == sign && array.children[4].innerText == sign){
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_4").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_0").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[2].innerText == sign && array.children[5].innerText == sign){
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_2").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_5").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//         if(array.children[6].innerText == sign && array.children[7].innerText == sign){
+//             document.querySelector("#item_6").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_7").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//             document.querySelector("#item_8").style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
+//         }
+//     }
+// }
