@@ -89,11 +89,11 @@ function checkTriple() {
     }
 
     if(isWinner){
-        showWinner();
+        showWinner(winningBoxes);
     }
 }
 
-function showWinner(){
+function showWinner(winningBoxes){
     
     winningBoxes.forEach( box => {
         document.querySelector("#number-container").children[box].style.boxShadow = "inset -1px -2px 14px 11px #3ed5d5";
@@ -109,7 +109,7 @@ function showWinner(){
         winningBoxes.forEach( box => {
             document.querySelector("#number-container").children[box].style.boxShadow = "inset 3px 2px 9px 0px #9c9c9c";
         });
-    }, 500);
+    }, 1000);
 }
 
 //diffrent more complex solution
